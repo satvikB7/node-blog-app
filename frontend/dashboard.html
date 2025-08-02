@@ -1,0 +1,101 @@
+<!-- frontend/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Node Blog App - Dashboard</title>
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body>
+  <div id="dashboard">
+    <div class="dashboard-header">
+      <h2>User Dashboard</h2>
+      <div class="header-buttons"> 
+        <button id="create-post-button">Create Post</button>
+        <button id="edit-profile-button" class="top-right-button">Edit Profile</button>
+        <div id="auth-button-placeholder"></div>
+      </div>
+    </div>
+    
+    <div id="edit-profile-section" style="display: none; position: relative;">
+      <span id="close-edit-profile" class="close-icon">&times;</span>
+      <h3>Edit Profile</h3>
+      <form id="edit-profile-form">
+        <input type="text" id="edit-username" placeholder="New Username">
+        <input type="email" id="edit-email" placeholder="New Email">
+        <button type="submit">Update Profile</button>
+      </form>
+    </div>
+
+    <div id="create-post-section" style="display: none; position: relative; margin-bottom: 20px;">
+      <span id="close-create-post" class="close-icon">&times;</span> 
+      <h3>Create New Post</h3>
+      <form id="create-post-form">
+        <input type="text" id="post-title" placeholder="Title" required>
+        <textarea id="post-body" placeholder="Body" required></textarea>
+        <select id="post-status">
+          <option value="draft">Draft</option>
+          <option value="published">Published</option>
+        </select>
+        <button type="submit">Create Post</button>
+      </form>
+    </div>
+
+    <div id="edit-post-section" style="display: none; position: relative;">
+        <span id="close-edit-post" class="close-icon">&times;</span>
+        <h3>Edit Post</h3>
+        <form id="edit-post-form">
+            <input type="hidden" id="edit-post-id">
+            <input type="text" id="edit-post-title" placeholder="Title">
+            <textarea id="edit-post-body" placeholder="Body"></textarea>
+            <select id="edit-post-status">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+            </select>
+            <button type="submit">Update Post</button>
+        </form>
+    </div>
+
+    <div id="search-filter-section">
+      <input type="text" id="search-input" placeholder="Search by title or content">
+      <select id="filter-status">
+        <option value="">All Statuses</option>
+        <option value="published">Published</option>
+        <option value="draft">Draft</option>
+      </select>
+      <select id="filter-owner">
+        <option value="">All Posts</option>
+        <option value="own">My Posts</option>
+      </select>
+      <input type="date" id="filter-start-date">
+      <input type="date" id="filter-end-date">
+      <div class="button-wrapper">
+        <button id="search-button">Search</button>
+        <button id="clear-filters" style="display: none;">Clear Filters</button>
+      </div>
+    </div>
+
+    
+    <!-- Posts System -->
+    <h3>Posts</h3>
+    <ul id="posts-list"></ul> <!-- List of user's posts -->
+
+    <div id="post-view-section" style="display: none; margin-top: 20px;">
+      <h3 id="post-view-title"></h3>
+      <p id="post-view-body"></p>
+      <p>Status: <span id="post-view-status"></span></p>
+      <p>Created: <span id="post-view-created"></span></p>
+      <h4>Comments</h4>
+      <ul id="comments-list"></ul> <!-- Comments shown here -->
+      <form id="add-comment-form" style="display: none;"> <!-- Hidden if not logged in -->
+        <input type="hidden" id="comment-post-id"> 
+        <textarea id="comment-body" placeholder="Add a comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <button id="close-post-view">Close</button>
+    </div>
+    
+  </div>
+  <script src="public/dashboard.js"></script>
+</body>
+</html>

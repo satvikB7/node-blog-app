@@ -1,0 +1,66 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Node Blog App - Auth</title>
+  <link rel="stylesheet" href="public/styles.css">
+</head>
+<body>
+  <h1>Welcome to Blog App</h1>
+  <div id="auth">
+    <!-- Tab Navigation -->
+    <div class="auth-tabs">
+      <a href="#" id="signup-tab" class="active">Sign Up</a>
+      <a href="#" id="signin-tab">Sign In</a>
+    </div>
+
+    <!-- Sign Up Form (shown by default) -->
+    <div id="signup-section">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Sign In Form (hidden by default) -->
+    <div id="signin-section" style="display: none;">
+      <h2>Sign In</h2>
+      <form id="signin-form">
+        <input type="email" id="signin-email" placeholder="Email" required>
+        <div style="display: flex; align-items: center;">
+          <input type="password" id="signin-password" placeholder="Password" style="flex: 1;" required>
+          <a href="#" id="change-password-link" style="margin-left: 10px; font-size: 0.9em; color: #007bff;">Change Password?</a>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+
+      <div id="change-password-section" style="display: none; margin-top: 20px; position: relative;">
+        <span id="close-change-password" class="close-icon">&times;</span>
+        <h3 style="text-align: center">Change Password</h3>
+        <form id="change-password-form">
+          <input type="password" id="old-password" placeholder="Old Password" required>
+          <input type="password" id="new-password" placeholder="New Password" required>
+          <input type="password" id="confirm-password" placeholder="Confirm New Password" required>
+          <button type="submit">Update Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Other Forms (After Login) -->
+    <div id="profile-section" style="display: none;">
+      <h2>Change Password</h2>
+      <form id="change-password-form">
+        <input type="password" id="old-password" placeholder="Old Password" required>
+        <input type="password" id="new-password" placeholder="New Password" required>
+        <button type="submit">Change Password</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="public/app.js"></script>
+</body>
+</html>
